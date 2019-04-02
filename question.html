@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Questionnaire</title>
+  
+	  <style type="text/css">
+	 body {
+	margin:0;
+	font-family:lato;
+}
+.safe-survey label:hover{
+	color:darkblue;
+}
+
+  .background{
+	width: 100%;
+	height: 100%;
+	position:fixed;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+	-webkit-filter: blur(35px); /* Safari 6.0 - 9.0 */
+	filter: blur(3px);
+		
+  }
+.safe-survey {
+	text-align:center;
+}
+.safe-survey p {
+	font-size:1.5em;
+	font-weight:300;
+	color:darkcyan;
+}
+.safe-survey p::before {
+	content:"Q. ";
+}
+.safe-survey p::after {
+	content: " of 13"
+}
+
+.safe-survey input {
+	padding:1%;
+	border:0;
+	border-radius:10%;
+	margin:1%;
+	background:deepskyblue;
+	color:white;
+	outline:none;
+}
+.inactive {
+	display:none;
+}
+#para{
+	width:100%;
+	height:100px;
+	font-size: 20px;
+	font-weight:700;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color:#23717f;
+	text-align: justify;
+  }
+ 
+  #title{
+	width:100%;
+			  height:50px;
+			  background-color: rgba(0,0,0,0.2);
+			   font-weight:bold;
+			   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			   font-size:35px;
+			   color:lightseagreen;
+				text-align: center;        
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);    
+  } 
+	 
+	 </style>
+
+  
+</head>
+
+<body>
+		<img class="background" src="cur.jpg" />
+
+		<!-- SLIDES | SINGLE OPTION SELECTION | ADVANCE POSSIBLE AFTER ANSWER | RESPONSIVE PROGRESS BAR | PREV/NEXT WITH ARROW KEYS | NEXT WITH RETURN/ENTER KEY -->
+	  <div id="title">
+		CURRICULUM RECOMMENDATION SYSTEM
+	  </div>
+		<div id="para">
+		  <p>Our Department(Computer Application),has asked us to investigate for curriculum design.Your input concerning this design process will be very valueable.We would greatly appreciate if
+		  if you could complete the following questionnaire
+		  The information provided will be reviewed by staff and presented to the Board of studies and will be 
+		  used in planning and designing the Curriculum.</p></div>
+<form method="post" action="http://127.0.0.1:5000/results1">	  
+
+  <div class="safe-survey">
+	
+	<div class="slide-one">
+		<p>Do you studied this course? 1</p>
+		<input name="Q1" type="button" value="Yes">
+		<input name="Q1" type="button" value="No">
+		
+	</div>
+</form>
+
+	<div class="slide-two inactive">
+		<p>This is a Worthwhile course? 2</p>
+		<input name="Q2" type="button" value="(0-1)">
+		<input name="Q2" type="button" value="(1-2)">
+		<input name="Q2" type="button" value="(2-3)">
+		<input name="Q2" type="button" value="(3-4)">
+		<input name="Q2" type="button" value="(4-5)">
+	</div>
+
+	<div class="slide-three inactive">
+		<p>How much useful this course to you? 3</p>
+		<input name="Q3" type="button" value="Excellent"></input>
+		<input name="Q3" type="button" value="Good"></input>
+		<input name="Q3" type="button" value="Average"></input>
+		<input name="Q3" type="button" value="Fai"></input>
+		<input name="Q3" type="button" value="Poor"></input>
+	</div>
+
+	<div class="slide-four inactive">
+		<p>Was the Content of course well-place? 4</p>
+		<input name="Q4" type="button" value="Yes"></input>
+		<input name="Q4" type="button" value="No"></input>
+		<p>if no,What changes would you recommend to improve this course?</p>
+		<textarea name="recommendcontent" rows="5" cols="50">
+    	</textarea>
+	</div>
+
+	<div class="slide-five inactive">
+			<p>Is there any prerequisites needed to study this course? 5</p>
+			<input name="Q5" type="button" value="Yes"></input>
+			<input name="Q5" type="button" value="No"></input>
+<p>if yes,what are they?</p>
+			<textarea name="recommendcontent" rows="5" cols="50">
+			</textarea>
+	</div>
+
+	<div class="slide-six inactive">
+		<p>Laboratory for this course is needed or not? 6</p>
+		<input name="Q6" type="button" value="Yes"></input>
+		<input name="Q6" type="button" value="No"></input>
+		
+	</div>
+<!--
+	<div class="slide-seven inactive">
+		<p>Did the engineers comply with all on site Health and Safety regulations? 7</p>
+		<input name="Q7" type="button" value="Excellent"></input>
+		<input name="Q7" type="button" value="Good"></input>
+		<input name="Q7" type="button" value="Average"></input>
+		<input name="Q7" type="button" value="Fair"></input>
+		<input name="Q7" type="button" value="Poor"></input>
+	</div>
+
+	<div class="slide-eight inactive">
+		<p>Following all works, did the engineer leave everything in good working order 8</p>
+		<input name="Q8" type="button" value="Excellent"></input>
+		<input name="Q8" type="button" value="Good"></input>
+		<input name="Q8" type="button" value="Average"></input>
+		<input name="Q8" type="button" value="Fair"></input>
+		<input name="Q8" type="button" value="Poor"></input>
+	</div>
+
+	<div class="slide-nine inactive">
+		<p>Are you satisfied with the information presented to you on completion of works? 9</p>
+		<input name="Q9" type="button" value="Excellent"></input>
+		<input name="Q9" type="button" value="Good"></input>
+		<input name="Q9" type="button" value="Average"></input>
+		<input name="Q9" type="button" value="Fair"></input>
+		<input name="Q9" type="button" value="Poor"></input>
+	</div>
+
+	<div class="slide-ten inactive">
+		<p>Your confidence in the services we offer? 10</p>
+		<input name="Q10" type="button" value="Excellent"></input>
+		<input name="Q10" type="button" value="Good"></input>
+		<input name="Q10" type="button" value="Average"></input>
+		<input name="Q10" type="button" value="Fair"></input>
+		<input name="Q10" type="button" value="Poor"></input>
+	</div>
+
+	<div class="slide-eleven inactive">
+		<p>On value for money, how do you rate our services? 11</p>
+		<input name="Q11" type="button" value="Excellent"></input>
+		<input name="Q11" type="button" value="Good"></input>
+		<input name="Q11" type="button" value="Average"></input>
+		<input name="Q11" type="button" value="Fair"></input>
+		<input name="Q11" type="button" value="Poor"></input>
+	</div>
+
+	<div class="slide-twelve inactive">
+		<p>What is your overall view of Security And Fire Experts Ltd? 12</p>
+		<input name="Q12" type="button" value="Excellent"></input>
+		<input name="Q12" type="button" value="Good"></input>
+		<input name="Q12" type="button" value="Average"></input>
+		<input name="Q12" type="button" value="Fair"></input>
+		<input name="Q12" type="button" value="Poor"></input>
+	</div>
+
+	<div class="slide-thirteen inactive">
+		<p>Would you recommend our company and services to other businesses? 13</p>
+		<input name="Q13" type="button" value="Excellent"></input>
+		<input name="Q13" type="button" value="Good"></input>
+		<input name="Q13" type="button" value="Average"></input>
+		<input name="Q13" type="button" value="Fair"></input>
+		<input name="Q13" type="button" value="Poor"></input>
+	</div>
+!-->
+	<div class="safe-survey-submit inactive">
+		<input style="width:initial" type="submit" name="submit" value="Submit Answers"/>
+	</div>
+
+		
+	
+</div>
+</form>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  
+
+	<script>
+	$('.Q2').click(function() {
+    $('.slide-one').addClass('inactive');
+		$('.slide-two').removeClass('inactive');
+});
+$('.slide-two').click(function() {
+    $('.slide-two').addClass('inactive');
+		$('.slide-three').removeClass('inactive');
+});
+$('.slide-three').click(function() {
+    $('.slide-three').addClass('inactive');
+		$('.slide-four').removeClass('inactive');
+});
+$('.slide-four').click(function() {
+    $('.slide-four').addClass('inactive');
+		$('.slide-five').removeClass('inactive');
+});
+$('.slide-five').click(function() {
+    $('.slide-five').addClass('inactive');
+		$('.slide-six').removeClass('inactive');
+});
+/*$('.slide-six').click(function() {
+    $('.slide-six').addClass('inactive');
+		$('.slide-seven').removeClass('inactive');
+});
+$('.slide-seven').click(function() {
+    $('.slide-seven').addClass('inactive');
+		$('.slide-eight').removeClass('inactive');
+});
+$('.slide-eight').click(function() {
+    $('.slide-eight').addClass('inactive');
+		$('.slide-nine').removeClass('inactive');
+});
+$('.slide-nine').click(function() {
+    $('.slide-nine').addClass('inactive');
+		$('.slide-ten').removeClass('inactive');
+});
+$('.slide-ten').click(function() {
+    $('.slide-ten').addClass('inactive');
+		$('.slide-eleven').removeClass('inactive');
+});
+$('.slide-eleven').click(function() {
+    $('.slide-eleven').addClass('inactive');
+		$('.slide-twelve').removeClass('inactive');
+});
+$('.slide-twelve').click(function() {
+    $('.slide-twelve').addClass('inactive');
+		$('.slide-thirteen').removeClass('inactive');
+});*/
+$('.slide-six').click(function() {
+    $('.slide-six').addClass('inactive');
+		$('.safe-survey-submit').removeClass('inactive');
+});
+	</script>
+
+
+
+
+</body>
+
+</html>

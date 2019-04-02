@@ -1,0 +1,401 @@
+<html>
+<title>Registration page</title>
+<head>
+<style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+*:focus {
+  outline: none;
+}
+.background{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  -webkit-filter: blur(35px); /* Safari 6.0 - 9.0 */
+  filter: blur(3px);       
+    }
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+#login-box {
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 550px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+.submit {
+  margin-top: 10px;
+  width: 120px;
+  height: 32px;
+  background: #16a085;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+.submit:hover,
+.submit:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.submit:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.or {
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  background: #DDD;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 40px;
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+  background: url('https://goo.gl/lPCXrQ');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 2px 2px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}
+
+button.social-signin {
+  margin-bottom: 20px;
+  width: 220px;
+  height: 36px;
+  border: none;
+  border-radius: 4px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+#title{
+  width:100%;
+            height:50px;
+            background-color: rgba(0,0,0,0.2);
+             font-weight:bold;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             font-size:35px;
+             color:teal;
+              text-align: center;            
+}
+.auto_style1 {
+        flex-align:center;
+        width:300px;
+        height:20px;
+        outline:none;
+        border-radius:5px;
+    }
+        .auto_style1:focus {
+            border-radius:5px;
+
+        }
+    table {
+     //   border-collapse:collapse;
+        border-spacing:25px;
+    }
+    select {
+        border-radius:13px;
+        border-width:medium;
+        width:200px;
+        height:25px;
+        font-weight:bold;
+        font-family:Cambria;
+        outline:none;
+    }
+        select:hover {
+            border-radius:13px;
+            border-color:HighlightText;
+        }
+        select:focus {
+            border-radius:13px;
+            border-color:blue;
+}
+    
+</style>
+<meta name="google-signin-client_id" content="673352464838-jl928d8ap5heuhupiis1um74qkvf8f85.apps.googleusercontent.com">
+<link href='bootstrap.min.css' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    <img class="background" src="/static/images/cur2.jpg" />
+    <div id="title">
+  CURRICULUM RECOMMENDATION SYSTEM
+</div>
+<script>
+function validation()
+{
+<!-------------------SELECTOPTIION Validation-----------------------------!>
+var s=document.forms["my"]["selected_value"].value;
+if(s=="SELECT")
+{
+alert("Please Select Category")
+<!--window.location("http://127.0.0.1:5000/questionnaire");!-->
+return false;
+}
+var s1=document.forms["my"]["selected_value1"].value;
+if(s1=="SELECT")
+{
+alert("Please Select Domain")
+return false;
+}
+<!-------------------Name Validation-----------------------------!>
+var a = document.forms["my"]["username"].value;
+if(a=="")
+{
+alert("Please Enter Your Name");
+document.form.username.focus();
+<!--window.location.assign("http://127.0.0.1:5000/questionnaire")!-->
+return false;
+}
+
+else if ((a.length < 5) || (a.length > 15))
+{
+alert("Your Character must be 5 to 15 Character");
+document.form.username.focus();
+return false;
+}
+<!-------------------Email Validation-----------------------------!>
+var x = document.forms["my"]["email"].value;
+if(x=="")
+{
+alert("Please Enter Your Email")
+}
+else {
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+    }
+
+<!-------------------MobileNo Validation-----------------------------!>
+
+
+var val = document.forms["my"]["MobileNo"].value;
+if (/^\d{10}$/.test(val)) {
+    
+} else {
+    
+    alert("Invalid number; must be ten digits")
+    
+    number.focus()
+    return false
+}
+
+
+
+}
+
+</script>
+<div id="login-box">
+  <div class="left" id="demo">
+    <h1>Sign up</h1>
+    <form name="my">
+    <table class="auto_style1" border="0">
+            <tr>
+                <td><select name="selected_value" id="selected">
+                    <option value="SELECT">SELECT CATEGORY</option>
+                    <option value="Alumni">ALUMNI</option>
+                    <option value="Corporate/Industry">CORPORATE/INDUSTRY</option>
+                    <option value="Experts">EXPERT</option>
+                    <option value="Faculty">FACULTY</option>
+                    <option value="Student">STUDENT</option>
+                    </select>
+            </td></tr>
+        </table>    
+        <table class="auto_style1" border="0">
+            <tr>
+                <td><select name="selected_value1" id="selected1">
+                    <option value="SELECT">SELECT DOMAIN</option>
+                    <option value="DataAnalyctics">DATA ANALYCTICS</option>
+                    <option value="Networks">NETWORKS</option>
+                    <option value="Data Structures">DATA STRUCTURES</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="OS">OS</option>
+                    <option value="SOFTWARE DEVELOPMENT">SOFTWARE DEVELOPMENT</option>
+                    </select>
+            </td></tr>
+        </table>    
+    <input type="text" name="username" id="username" placeholder="Username"/>
+    <input type="text" name="email" id="email" placeholder="E-mail" />
+    <input type="text" name="MobileNo" placeholder="MobileNumber" id="Mob_No"/>
+     <input type="button" class="submit" id="otp_generate" name="otp_submit" value="Generate otp" onclick="validation()"/>
+    <div hidden id="otp_txt">
+   <input type="text"  name="otp_input" placeholder="Enter Your OTP Here" id="otp_input"/>
+   </div>
+   <div class="col-md-2">
+    <input type="submit" hidden class="submit" id="signup_submit" name="signup_submit" value="Sign me up" />
+     <!--input type="submit" class="submit" id="transform_submit" name="clickme_submit" value="Clickme" !-->
+      
+    </div>
+  </div>
+ </form>
+  
+  <div class="right">
+    <span class="loginwith">Sign in with<br />social network</span>
+    
+  <!--  <a href="https://developers.facebook.com/docs/authentication/"><button class="social-signin facebook">Log in with facebook</button></a>!-->
+    <!--<a href=""><button class="social-signin Linkedin">Log in with Linkedin</button></a>-->
+    <!--<a href="http://code.google.com/apis/accounts/docs/OpenID.html"><button class="social-signin google">Log in with Google+</button></a>-->
+      <div class="g-signin2" data-onsuccess="onSignIn" id="g_signin"></div>
+	<script>
+      function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var ID=console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  var Name=console.log('Name: ' + profile.getName());
+  
+  var Img=console.log('Image URL: ' + profile.getImageUrl());
+  var EmailID=console.log('Email: ' + profile.getEmail());
+  var Mobile=console.log('Email: ' + profile.Mobile);// This is null if the 'email' scope is not present.
+  }
+  </script>
+  </div>
+  <div class="or">OR</div>
+</div>
+</body>
+</html>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script>
+$(document).on("click","#otp_generate",function(){
+    mobile_no = $("#Mob_No").val();
+    console.log(mobile_no);
+   $.ajax({
+           type: "GET",
+           url: "request1",
+           data:{'mobile_no':mobile_no},
+           success: function (result)
+           {    
+              if(result=="yes")
+              {
+                 $("#Mob_No").hide();
+                 $("#otp_generate").hide();
+                 $("#otp_txt").show();
+                 $("#signup_submit").show();
+                 
+              }
+              else if(result=="no"){
+              alert("OTP NOT SEND");
+            
+              }
+              else
+              {
+              
+              }
+            }
+     });
+    });
+    
+$(document).on("click","#signup_submit",function(){
+    mobile_no = $("#Mob_No").val();
+    name = $("#username").val();
+    mail = $("#email").val();
+    otp = $("#otp_input").val(); 
+    type=$("#selected").val();
+    domain=$("#selected1").val();
+   $.ajax({
+           type: "GET",
+           url: "response",
+           data:{'mobile_no':mobile_no,'username':name,'email':mail,'otp':otp,'category':type,'domain':domain},
+           success: function (result)
+           {
+               if(result=="yes")   
+               {
+           alert("OTP VERIFIED SUCCESSFULLY");
+           window.location.href = 'http://127.0.0.1:5000/course';
+          
+                }
+               else{
+               alert("Incorrect OTP");
+               }                     
+            }
+     });
+    });  
+  
+  
+</script>
+  

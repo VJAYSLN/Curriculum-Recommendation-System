@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Questionnaire Form</title>
+  
+  
+  
+      <!--<link rel="stylesheet" href="http://127.0.0.1:5000/css" type="text/cs">!-->
+      <style type="text/css">
+
+.background{
+  width: 100%;
+  height: 100%;
+  position:fixed;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  -webkit-filter: blur(35px); /* Safari 6.0 - 9.0 */
+  filter: blur(3px);
+      
+}
+#container {
+  width: 80%;
+  max-width: 700px;
+  margin: 60px auto 0 auto;
+  text-align: center;
+}
+#title{
+  width:100%;
+            height:50px;
+            background-color: rgba(0,0,0,0.2);
+             font-weight:bold;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             font-size:35px;
+             color:lightseagreen;
+              text-align: center;        
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);    
+}
+#para{
+  width:100%;
+  height:100px;
+  font-size: 20px;
+  font-weight:700;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:#23717f;
+  text-align: justify;
+}
+#questions {
+  font-family: arial;
+  box-shadow: inset 2px -1px 5px 0px #ccc;
+  color: #23717f;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  /* border: 1px solid $light-gray; */
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+
+#progress {
+  list-style-type: none;
+  display: inline-table;
+  width: 100%;
+  margin: 5px 0;
+  padding: 0;
+}
+#progress li {
+  display: inline-block;
+  /*background-color:#fff;*/
+  border: 1px solid #23717f;
+  min-width: 20px;
+  height: 6px;
+  margin: 0 0 0 0;
+  opacity: .175;
+}
+#progress .status {
+  background-color: #a5c4c9;
+}
+
+.content {
+  padding: 10px 20px;
+}
+
+.question {
+  text-align: left;
+  position: absolute;
+  top: 5px;
+  width: 100%;
+  /* border:1px solid #000; */
+}
+.question ol {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+}
+.question ol li {
+  border-radius: 10px;
+  margin: 0 0 10px 0;
+  padding: 8px;
+  cursor: pointer;
+  -webkit-transition: all .8s ease-in-out;
+}
+.question ol li:hover {
+  background-color: #c3ddda;
+  /* color: #f2f2f2; */
+}
+.question ol li input {
+  margin: 0 10px 0 0;
+}
+
+.buttons {
+  display: block;
+  width: 94%;
+  padding: 0 15px 15px 15px;
+  margin: 0 auto 15px auto;
+  overflow: hidden;
+  border-bottom: 3px dotted #ededed;
+}
+.buttons button {
+  cursor: pointer;
+}
+
+button {
+  font-family: arial;
+  border-radius: 80px;
+  background-color: #c3ddda;
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  color: #23717f;
+  font-size: 30px;
+  outline: none;
+  /*-webkit-transition: all .5s ease-in-out;*/
+}
+button:hover {
+  background-color: #a5c4c9;
+  /*-webkit-transition: all .5s ease-in-out;*/
+}
+
+button.wide {
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 0 15px;
+  width: auto;
+  height: 40px;
+}
+
+#reset, #submit {
+  display: block;
+  float: right;
+  margin-left: 10px;
+}
+
+#submit {
+  /*display:none;*/
+}
+
+.disabled {
+  background-color: #ededed;
+  color: #ccc;
+}
+.disabled:hover {
+  background-color: #ededed;
+}
+
+#previous {
+  float: left;
+}
+
+#next {
+  float: right;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio] + label span {
+  display: inline-block;
+  float: left;
+  width: 15px;
+  height: 15px;
+  background-color: #a5c4c9;
+  border-radius: 20px;
+  border: 2px solid;
+  margin: 0 10px 0 0;
+  padding: 0;
+  font-size: 0;
+}
+
+input[type=radio]:checked + label span {
+  background-color: #23717f;
+}
+
+#error {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+}
+
+      </style>
+
+  
+</head>
+
+<body>
+    <img class="background" src="/static/images/cur.jpg" />
+
+  <!-- SLIDES | SINGLE OPTION SELECTION | ADVANCE POSSIBLE AFTER ANSWER | RESPONSIVE PROGRESS BAR | PREV/NEXT WITH ARROW KEYS | NEXT WITH RETURN/ENTER KEY -->
+<div id="title">
+  CURRICULUM RECOMMENDATATION SYSTEM
+</div>
+  <div id="para">
+    <p>Our Department(Computer Application),has asked us to investigate for curriculum design.Your input concerning this design process will be very valueable.We would greatly appreciate if
+    if you could complete the following questionnaire
+    The information provided will be reviewed by staff and presented to the Board of studies and will be 
+    used in planning and designing the Curriculum.</p></div>
+
+<div id="container">
+<div id="questions">
+  <ul id="progress">
+  </ul>
+  
+  <div class="question">
+    <div class="content">
+    <h3>1.Do you studied this course?</h3>
+    <ol>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        Yes</li>
+      
+      <li><input type="radio">
+        <label><span>one</span></label>
+        No</li>
+      
+    </ol>
+    </div>
+  </div>
+  <div class="question">
+    <div class="content">
+    <h3>2.This is a Worthwhile course?</h3>
+    <ol>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        (0-1)</li>
+      
+      <li><input type="radio">
+        <label><span>one</span></label>
+        (1-2)</li>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        (2-3)</li>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        (3-4)</li>
+        <li><input type="radio">
+            <label><span>one</span></label>
+            (4-5)</li>
+    </ol>
+    </div>
+  </div>
+  <div class="question">
+    <div class="content">
+    <h3>How much useful this course to you?</h3>
+    <ol>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        Fair</li>
+      
+      <li><input type="radio">
+        <label><span>one</span></label>
+        Good</li>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        Average</li>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        Satisfied</li>
+        <li><input type="radio">
+            <label><span>one</span></label>
+            UnSatisfied</li>
+    </ol>
+    </div>
+  </div>
+  <div class="question">
+    <div class="content">
+    <h3>Was the Content of course well-place?</h3>
+    <ol>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        Yes</li>
+      
+      <li><input type="radio">
+        <label><span>one</span></label>
+        No</li>
+    </ol>
+</div>
+</div>
+  <div class="question">
+    <div class="content">
+    <h3>if no,What changes would you recommend to improve this course?</h3>
+    <ol>
+      <li>      <input type="text" class="sys" name="recommendcontent" rows="5" cols="50">
+            
+  
+</li>
+   </ol>
+    </div>
+  </div>
+  <div class="question">
+    <div class="content">
+    <h3>Is there any prerequisites needed to study this course?if yes,what are they?</h3>
+    <ol>
+      <li>      <input type="text" class="sys" name="recommendcontent" rows="5" cols="50">
+            
+ 
+</li>
+   </ol>
+    </div>
+  </div>
+  
+  <div class="question">
+    <div class="content">
+    <h3>Laboratory for this course is needed or not?</h3>
+    <ol>
+      <li><input type="radio">
+        <label><span>one</span></label>
+        Yes</li>
+      
+      <li><input type="radio">
+        <label><span>one</span></label>
+        No</li>
+    </ol>
+</div>
+</div>
+
+  <span id="error"></span>
+</div>
+<br>
+<div class="buttons">
+  <button id="previous"><</button>
+  <button id="next" class="disabled">></button>
+</div>
+<div class="buttons">  
+  <a href="last.html"><button id="submit" class="wide disabled">submit</button></a>
+  <button id="reset" class="wide">reset</button>
+  
+</div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  
+  
+<!--    <script  src="http://127.0.0.1:5000/js"></script>!-->
+<script>
+var lastQ = "This is the last question. Try the submit button.";
+var firstQ = "You are on the first question.";
+var unansweredQ = "Please make a selection.";
+var earlySubmit = "Please complete all questions.";
+var m=0;
+/*$(document).ready( function() {
+$.getJSON('https://gist.github.com/catherinemaldonado/0c72e27f347dc5204214.js', function(data) {
+  for (var i = 0; i < data.questions.length; i++) {
+            var question = '<h3>'+data.questions[i].question+'</h3>';
+            var thisNumber = Number(i)+1;
+            var answers = '<ol id="answers_'+thisNumber+'"></ol>';
+            var answersID = $(answers).attr('id');
+    
+    var build = '<div class="question"><div class="content">'+question+'</div></div>';
+    $("#questions").append(build);
+  }
+ });
+ });*/
+
+$(".question").css({right: '-705px'});
+
+$("#questions div:first").addClass("active").show().animate({right: '0px'});
+
+var questions = $("#questions > div");
+
+for (var i = 0; i < questions.length; i++) {
+  $("#progress").append("<li></li>");
+}
+
+var progressItems = $("#progress li").length;
+    var percent = (1/progressItems)*92;
+    $("#progress li").css("width",percent+"%");
+
+function checkIndex (){
+  
+  var current = $(".active").index();
+  var total = $("#questions > div").length;
+  var currentNum = Number(current);
+  
+  $("#progress li").removeClass("status");
+  $("#progress li").slice(0,currentNum).addClass("status");
+  
+  if (current == total){
+    $("#next").addClass("disabled");
+  }
+  
+  if (current == 1){
+    $("#previous").addClass("disabled");
+  }else{
+    $("#previous").removeClass("disabled");
+  }
+  
+  
+}
+
+checkIndex();
+
+
+function checkChecked() {
+  var current = $(".active ol input:checked");
+  if ($(current).length == 1){
+    $("#next").removeClass("disabled"); 
+  }else{
+    $("#next").addClass("disabled");
+  }
+  
+  if ($(current).length == 1 && $(".active").index() == $("#questions > div").length){
+    $("#submit").removeClass("disabled"); 
+  }
+  
+  if ($(".active").index() == $("#questions > div").length){
+      $("#next").addClass("disabled"); 
+  }
+
+}
+
+$("#next").on("click", function () {
+  
+var ANS=(document.getElementsByTagName('h3')[m++].innerHTML).charAt(0);
+  
+  console.log(ANS.charAt(0));
+    $("#error").fadeOut("slow");
+    if ($(this).hasClass("disabled") && $(".active").index() == $("#questions > div").length){
+      $("#error").html(lastQ);
+      $("#error").fadeIn("slow");
+      return false;
+    }else if ($(this).hasClass("disabled")){
+      $("#error").html(unansweredQ);
+      $("#error").fadeIn("slow");
+      return false;
+    }
+
+    var slide = $(".active");
+    var next = $(".active").next(".question");
+    // SLIDE ANIMATION TRANSITION
+    $(slide).animate({left: '-705px'},450).toggleClass("active");
+    $(next).animate({right: '0px'},450).toggleClass("active");
+  
+    function resetDiv() {
+      $(".active").prev(".question").css({position: "absolute",width: "100%", left: "-705px",right:"auto"});
+    }
+
+    setTimeout(resetDiv, 900);
+    
+    checkChecked();
+    checkIndex();
+    
+});
+
+$("#previous").on("click", function () {
+  if ($(this).hasClass("disabled")){
+      $("#error").html(firstQ);
+      $("#error").fadeIn("slow");
+      return false;
+    }
+  /*event.preventDefault()*/
+  var slide = $(".active");
+  var prev = $(".active").prev(".question");
+
+  // SLIDE ANIMATION TRANSITION
+  $(slide).css({left: "auto"}).animate({right: '-705px',left:'auto'},350).toggleClass("active");
+  $(prev).animate({left: '0px'},450).toggleClass("active");
+  $("#error").fadeOut("slow");
+  checkIndex();
+  checkChecked();
+});
+
+$("ol li").on("click", function () {
+    var $this = $(this).find("input:radio");
+    var all = $(this).parent().find("input:radio").not($this);
+    var val = $this.val();
+
+    $this.prop("checked", true);
+
+    if ($this.prop("checked") === true) {
+        all.filter(function () {
+            return $(this).val() === val;
+        }).prop("checked", false);
+    }
+  $("#error").fadeOut("slow");
+
+  checkChecked();
+});
+
+$("#reset").on("click", function () {
+  $("#error").fadeOut("slow");
+  $("#submit").addClass("disabled");
+  $("input:radio").each( function() {
+      $(this).attr('checked',false);
+  });
+  checkChecked();
+   $(".question").removeClass("active").css({right: '-705px',left: 'auto'});
+
+  $("#questions div:first").fadeIn("slow").css({left: "auto"}).animate({right: '0',left:'auto'},350).toggleClass("active");
+  checkIndex();
+});
+
+$(document).keyup(function(e) {
+    /*checkIndex();*/
+    if(e.which == 13 || e.which == 39) {
+       $("#next").trigger('click');
+    }else if(e.which == 37) {
+       $("#previous").trigger('click');
+    }
+});
+
+
+$("#submit").on("click", function () {
+if ($(this).hasClass("disabled")){
+      $("#error").html(earlySubmit);
+      $("#error").fadeIn("slow");
+      return false;
+    }else{
+      alert("This will eventually do something awesome!");
+    }
+});
+</script>
+<script>
+  $('.sys').on("change",function() 
+  {
+    var current = $(".active").index();
+  var total = $("#questions > div").length;
+  var currentNum = Number(current);
+      $("#next").removeClass("disabled");
+      $("#submit").removeClass("disabled");
+      if (current == total){
+    $("#next").addClass("disabled");
+  }
+  
+  if (current == 1){
+    $("#previous").addClass("disabled");
+  }else{
+    $("#previous").removeClass("disabled");
+  }
+  
+
+  })
+</script>
+
+
+
+</body>
+
+</html>
